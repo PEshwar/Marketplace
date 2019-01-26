@@ -14,9 +14,10 @@ class AddressForm extends React.Component {
     }
   
     handleSubmit(event) {
-      alert('Address submitted was: ' + this.state.Address);
+  //    alert('Address submitted was: ' + this.state.Address);
       event.preventDefault();
         this.props.handleAddAddress(this.state.Address);
+        this.setState({Address:""});
     }
   
     render() {
@@ -24,7 +25,7 @@ class AddressForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Enter account address for Admin role:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <input type="text" value={this.state.Address} onChange={this.handleChange} />
           </label>
           <input type="submit" value="Add as Admin" />
         </form>

@@ -75,18 +75,27 @@ class App extends Component {
     if (!this.state.web3) {
       return <div>Loading Web3, accounts, and contract...</div>;
     }
+    const adminAddress = this.state.adminAddress;
+    let adminTitle;
+    if(adminAddress) {
+      adminTitle = 
+      <div>
+      <p> Admin details:</p>
+      <div>Account is: {this.state.adminAddress}, Role is: {this.state.adminRole}</div>
+      </div>
+    }
     return (
       <div className="App">
      
         <h2>Smart Contract Example</h2>
         <p>
-          If your contracts compiled and migrated successfully, below will show
-          a stored value of 5 (by default).
+          Owner details:
         </p>
      
         <div>Account is: {this.state.ownerAddress}, Role is: {this.state.ownerRole}</div>
-        <div>Account is: {this.state.adminAddress}, Role is: {this.state.adminRole}</div>
-
+        <br></br><hr/>
+       
+        {adminTitle}
         <br></br>
         <AddressForm handleAddAddress={this.handleAddAddress}></AddressForm>
       </div>
