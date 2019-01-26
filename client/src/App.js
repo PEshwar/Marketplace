@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MarketplaceContract from "./contracts/Marketplace.json";
 import getWeb3 from "./utils/getWeb3";
-
+import AddressForm from "./components/AddressForm.js";
 import "./App.css";
 
 class App extends Component {
@@ -43,6 +43,18 @@ class App extends Component {
     }
   };
 
+  handleAddAddress = async (address) =>  {
+    const {contract,accounts,web3} = this.state;
+    this.setState({adminAddress : address});
+    await contract.methods.addAdmin(address).send({ from: accounts[0] });
+   // Get the role from the contract.
+   const response1 = await contract.methods.roles(address).call();
+   console.log(web3.utils.hexToAscii(response1))
+   // Update state with the result.
+   this.setState({ adminRole: web3.utils.hexToAscii(response1) }); 
+  }
+
+
   runExample = async () => {
     const { accounts, contract, web3 } = this.state;
 
@@ -65,17 +77,18 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <h1>Good to Go!</h1>
-        <p>Your Truffle Box is installed and ready.</p>
+     
         <h2>Smart Contract Example</h2>
         <p>
           If your contracts compiled and migrated successfully, below will show
           a stored value of 5 (by default).
         </p>
-        <p>
-          Try changing the value stored on <strong>line 40</strong> of App.js.
-        </p>
-        <div>Address is: {this.state.ownerAddress}, Role is: {this.state.ownerRole}</div>
+     
+        <div>Account is: {this.state.ownerAddress}, Role is: {this.state.ownerRole}</div>
+        <div>Account is: {this.state.adminAddress}, Role is: {this.state.adminRole}</div>
+
+        <br></br>
+        <AddressForm handleAddAddress={this.handleAddAddress}></AddressForm>
       </div>
     );
   }
