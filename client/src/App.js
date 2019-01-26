@@ -80,16 +80,20 @@ class App extends Component {
     if(adminAddress) {
       adminTitle = 
       <div>
-      <p> Admin details:</p>
+      <p> Admin details set in contract:</p>
       <div>Account is: {this.state.adminAddress}, Role is: {this.state.adminRole}</div>
       </div>
     }
     return (
       <div className="App">
      
-        <h2>Smart Contract Example</h2>
+        <h2>Marketplace Contract Example</h2>
+        <br></br><hr/>
+        <div>This contract was deployed from address: {this.state.accounts[0]}</div>
+        <br></br><hr/>
+
         <p>
-          Owner details:
+          Owner details set in contract (in constructor):
         </p>
      
         <div>Account is: {this.state.ownerAddress}, Role is: {this.state.ownerRole}</div>
