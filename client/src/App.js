@@ -5,7 +5,15 @@ import getWeb3 from "./utils/getWeb3";
 import "./App.css";
 
 class App extends Component {
-  state = { storageValue: 0, web3: null, accounts: null, contract: null };
+  state = { 
+    ownerAddress: null, 
+    ownerRole: null,
+    adminAddress :null,
+    adminRole: null,
+    web3: null, 
+    accounts: null, 
+    contract: null 
+  };
 
   componentDidMount = async () => {
     try {
@@ -41,11 +49,14 @@ class App extends Component {
     // Stores a given value, 5 by default.
    // await contract.methods.set(51).send({ from: accounts[0] });
 
-    // Get the value from the contract to prove it worked.
-    const response = await contract.methods.owner().call();
-    console.log(response)
+    //Get the owner address from the contract
+    const response1 = await contract.methods.owner().call();
+    console.log("1st account is",accounts[0])
+    // Get the role from the contract.
+    const response2 = await contract.methods.roles("0xF0A8D33fFd9c990304d8A45D7555B07538c00B5e").call();
+    console.log(web3.utils.hexToAscii(response2))
     // Update state with the result.
-    this.setState({ storageValue: response });
+    this.setState({ ownerAddress: response1, ownerRole: web3.utils.hexToAscii(response2) });
   };
 
   render() {
@@ -64,7 +75,7 @@ class App extends Component {
         <p>
           Try changing the value stored on <strong>line 40</strong> of App.js.
         </p>
-        <div>The stored value is: {this.state.storageValue}</div>
+        <div>Address is: {this.state.ownerAddress}, Role is: {this.state.ownerRole}</div>
       </div>
     );
   }

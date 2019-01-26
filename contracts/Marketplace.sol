@@ -54,6 +54,7 @@ contract Marketplace {
     //constructor
     constructor() public {
         owner = msg.sender;
+        roles[msg.sender] = "Owner";
     }
 
     // Fallback function- if call does not match any function signature in this contract
