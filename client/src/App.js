@@ -87,9 +87,9 @@ class App extends Component {
     return (
       <div className="App">
      
-        <h2>Marketplace Contract Example</h2>
+        <h2>Marketplace Contract -Peshwar</h2>
         <br></br><hr/>
-        <div>This contract was deployed from address: {this.state.accounts[0]}</div>
+        <div>Current Ethereum account (this contract was deployed from this address): {this.state.accounts[0]}</div>
         <br></br><hr/>
 
         <p>

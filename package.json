@@ -1,0 +1,17 @@
+{
+  "name": "react-market",
+  "version": "1.0.0",
+  "description": "This creates a decentralised marketplace where sellers can display products for sale and buyers can purchase products.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "truffle-hdwallet-provider": "^1.0.0-web3one.5"
+  },
+  "author": "",
+  "license": "ISC"
+}

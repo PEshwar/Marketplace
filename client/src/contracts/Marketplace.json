@@ -31217,21 +31217,21 @@
     "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
   },
   "networks": {
-    "5777": {
+    "4": {
       "events": {},
       "links": {},
-      "address": "0x9ab371BbE8C040A3aA7b3f7712Fea2838f752fD8",
-      "transactionHash": "0x206d8500655edeb5a96c6b9f32fddaf9463638f65ee657f34c0da446407a883d"
+      "address": "0xcC4775f970Bd9857809Cee29BF0b7b2590F1c831",
+      "transactionHash": "0xb1e57fbf6eba8660a7e1cb1a105d750c1bb0311fb60ac6ec885039a494a36b26"
     },
     "5778": {
       "events": {},
       "links": {},
-      "address": "0x9ab371BbE8C040A3aA7b3f7712Fea2838f752fD8",
-      "transactionHash": "0x206d8500655edeb5a96c6b9f32fddaf9463638f65ee657f34c0da446407a883d"
+      "address": "0x216E307e25edA9f8Ac50BF94bA9b82b3e23c8B92",
+      "transactionHash": "0x0cf0203f7adb7f94ed042196377d432fd66a3760226d0cc3c05fb7d4f74c750d"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-01-27T06:27:46.235Z",
+  "updatedAt": "2019-01-27T10:59:29.758Z",
   "devdoc": {
     "methods": {
       "addAdmin(address)": {
