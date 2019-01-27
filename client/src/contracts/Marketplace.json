@@ -31220,12 +31220,18 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x737e54B40bD11F370Edc37F0E73C4178d5D41cC1",
-      "transactionHash": "0x59f4b4a0e0d914daa3283f334bf6c444f205b26682f0b48f72779df07f979803"
+      "address": "0x9ab371BbE8C040A3aA7b3f7712Fea2838f752fD8",
+      "transactionHash": "0x206d8500655edeb5a96c6b9f32fddaf9463638f65ee657f34c0da446407a883d"
+    },
+    "5778": {
+      "events": {},
+      "links": {},
+      "address": "0x9ab371BbE8C040A3aA7b3f7712Fea2838f752fD8",
+      "transactionHash": "0x206d8500655edeb5a96c6b9f32fddaf9463638f65ee657f34c0da446407a883d"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-01-26T16:54:29.093Z",
+  "updatedAt": "2019-01-27T06:27:46.235Z",
   "devdoc": {
     "methods": {
       "addAdmin(address)": {
