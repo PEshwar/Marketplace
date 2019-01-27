@@ -42,8 +42,10 @@ Front-end application has been implemented in React. Following basic features ha
 * **Note**: Those in experimental folder - Vyper and Oraclize smart contracts have not been deployed in Rinkeby and are written for experimental/demonstration purpose only.
 
 #### Section 6: Prerequisites:
-* **1** Start Ganache on port 8545
-* **2** Connect metamask to Ganache server at http://localhost:8545
+* **1** Install Ganache and metamask plug-in for browser.
+* **2** Start Ganache on port 8545
+* **3** Connect metamask to Ganache server at http://localhost:8545
+* **4** Import atleast the first ganache account into Metamask (using private key import) and verify that the balance on metamask for the account is the same as that shown in ganache.
 
 
 #### Section 7: How to set it up?
@@ -63,14 +65,35 @@ Front-end application has been implemented in React. Following basic features ha
 * truffle test 
 *note: 5 tests should pass*
 
-**Step 6** cd client
+**Step 6** 
+* cd client 
+* npm install 
 
-**Step 7** npm run test
+**Step 7** 
+* **npm run test**
+* This will start up server and show that 1 test has passed. You can abort server with Ctrl-C.
 
-**Step 8** npm run start. Go to http://localhost:3000
+**Step 8** 
+* npm run start. 
+* Go to http://localhost:3000 (if browser window does not automatically open). 
+* Note: Ensure testing is done on browser where metamask plug=in is installed.
+
+#### Section 8: How to test DApp?
+* **Current Ethereum account**: On startup screen verify that the account schown  on screen is the same as the account selected on metamask. If metamask account selection is changed, the corresponding value should change in UI
+* **Owner Details**: This would show the account from which contract was deployed. It defaults to first account in ganache. You will see the role for this account would be marked as **Owner**. (as per contract constructor logic)
+
+* **Admin Details**: 
+* You would see an input box to enter account of admin to add to marketplace. You can select any of the accounts from Ganache (except  the first one from which contract was deployed), and enter the value in input box, and press button 'Add as admin'. Ensure that before pressing the  ' Add as Admin' button, metamask account selected is the owner of the contract. (Otherwise error will be thrown).
+* You should see metamask confirmation window popup, as this is a transaction to ethereum. Click 'Confirm' in the window.
+* You should see a metamask popup saying transaction is confirmed, and the admin account you added will be shown on screen under **Admin details** with the role marked as 'Admin' 
+* If you encounter error in this step, do one or all of the following:
+    * refresh browser
+    * select another ethereum network (eg mainnet or riknkeby) in metamask and switch it back to custom rpc(http://localhost:8545)
+    * restart ganache, and redeploy contract with **truffle migrate --reset**
+    * Restart the dev server (react)
 
 
-#### Section 8: Intermittent errors/debugging tips:
+#### Section 9: Intermittent errors/debugging tips:
 * **1**: Sometime metamask does not show the confirmation window. This is intermittent issue with metamask.
 * **2**: If while deploying contract (with truffle migrate) out of gas error is obtained, run truffle migrate --reset. Then also check blocklimit in your ganache configuration.
 * **3**: If while running react app, metamask confirmation fails stating nonce does not match, then just change network id of ganache , restart ganache and reconnect metamask to ganache. And rerun truffle migrate and restart the client app.
